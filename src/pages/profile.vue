@@ -4,7 +4,7 @@
     <div class="column justify-center items-center">
       <h3>{{character.name}}</h3>
       <q-card class="my-card">
-        <img :src="character.img" alt="">
+        <img :src="character.img" alt="" @click="alert = true">
         <q-card-section>
           <div class="text-h6">{{character.name}}</div>
           <div class="text-subtitle2">{{character.nickname}}</div>
@@ -20,6 +20,19 @@
         </q-card-section>
       </q-card>
     </div>
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Birthday Info</div>
+        </q-card-section>
+        <q-card-section>
+          {{character.birthday}}
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn flat label="OK" color="primary" v-close-popup></q-btn>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -36,7 +49,8 @@ export default {
   },
   data() {
     return {
-      character: ''
+      character: '',
+      alert: false
     }
   }
 }
