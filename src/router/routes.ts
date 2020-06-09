@@ -3,9 +3,10 @@ import { RouteConfig } from 'vue-router';
 const routes: RouteConfig[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/search.vue'),
     children: [{ path: '', component: () => import('pages/Index.vue') },
-                { path: '/test', component: () => import('pages/Test.vue') }
+                { path: '/test', component: () => import('pages/Test.vue') },
+                { path: '/profile/:id', component: () => import('pages/profile.vue') }
               ]
   }
 ];
