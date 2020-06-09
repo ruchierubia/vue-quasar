@@ -4,7 +4,7 @@ const routes: RouteConfig[] = [
   {
     path: '/',
     component: () => import('layouts/search.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') },
+    children: [{ path: '', component: () => import('pages/IndexNew.vue') },
                 { path: '/test', component: () => import('pages/Test.vue') },
                 { path: '/profile/:id', name: 'profile', component: () => import('pages/profile.vue') }
               ]
