@@ -10,18 +10,9 @@
       </q-toolbar>
 
       <q-tabs>
-        <q-route-tab
-          icon="map"
-          to="/your/route"
-          replace
-          label="One Tab"
-        />
-        <q-route-tab
-          icon="assignment"
-          to="/some/other/route"
-          replace
-          label="Other Tab"
-        />
+        <q-route-tab :to="{name: 'profile', params: {id:1}}" replace label="Main Character" />
+        <q-route-tab :to="{name: 'profile', params: {id:2}}" replace label="Second Character" />
+        <q-route-tab :to="{name: 'profile', params: {id:'random'}}" replace label="Cast" />
       </q-tabs>
     </q-header>
 
