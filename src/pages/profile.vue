@@ -6,7 +6,11 @@
 </template>
 
 <script>
+import axios from '../boot/axios'
 export default {
-  // name: 'PageName',
+  async created() {
+    const character = await this.$axios.get(`https://www.breakingbadapi.com/api/characters/${this.$route.params.id}`);
+    console.log(character.data);
+  }
 }
 </script>
