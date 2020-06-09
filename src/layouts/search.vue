@@ -18,7 +18,7 @@
 
     <q-page-container>
       <!-- This is where pages get injected -->
-      <router-view />
+      <router-view :key="$route.params.id"/>
     </q-page-container>
 
   </q-layout>
