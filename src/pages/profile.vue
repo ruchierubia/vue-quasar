@@ -38,14 +38,29 @@
 
 <script>
 import axios from '../boot/axios'
+import { QSpinnerCube } from 'quasar';
 export default {
   async created() {
+    this.$q.loading.show({
+      message: 'loading...',
+      spinnerColor: 'red',
+      spinner: QSpinnerCube
+    });
     let url = `https://www.breakingbadapi.com/api/characters/${this.$route.params.id}`;
     if (this.$route.params.id === 'random') {
       url = `https://www.breakingbadapi.com/api/character/${this.$route.params.id}`;
     }
-    const character = await this.$axios.get(url);
-    this.character = character.data[0];
+    try {
+      const character = await this.$axios.get(url);
+      setTimeout(() => {
+        this.$q.loading.hide();
+      }, 400);
+      this.character = character.data[0];
+    } catch (err) {
+        setTimeout(() => {
+          this.$q.loading.hide();
+      }, 400);
+    }
   },
   data() {
     return {
