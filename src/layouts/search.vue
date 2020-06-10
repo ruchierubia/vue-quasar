@@ -27,7 +27,9 @@
 <script>
 export default {
   // name: 'LayoutName',
-
+  meta : {
+    title : 'Hit Series'
+  },
   data () {
     return {
       leftDrawer: true
